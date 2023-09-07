@@ -1,0 +1,870 @@
+{
+	"s5": {
+		"prefix": "s5",
+		"body": [
+			"<script>",
+			"  function open() {",
+			"    alert('It worked!');",
+			"  }",
+			"</script>"
+		],
+		"description": "s5"
+	},
+	"s6.1": {
+		"prefix": "s6.1",
+		"body": [
+			"body {",
+			"  background-color: lightgreen;",
+			"}"
+		],
+		"description": "s6.1"
+	},
+	"s6.2": {
+		"prefix": "s6.2",
+		"body": [
+			"import '$lib/global.css';"
+		],
+		"description": "s6.2"
+	},
+	"s8.1": {
+		"prefix": "s8.1",
+		"body": [
+			":root {",
+			"  --heading-font: 'Palanquin Dark', sans-serif;",
+			"  --body-font: 'Open Sans', sans-serif;",
+			"  --text: #2F4858;",
+			"  --text-2: #8498A5;",
+			"  --bg: #E9F0EC;",
+			"  --subtle: #E0E5E9;",
+			"  --subtle-2: #CCDBE7;",
+			"  --feat: #FF3E00;",
+			"  --box-shadow: 0px 5px 15px rgba(0,0,0,.15);",
+			"}"
+		],
+		"description": "s8.1"
+	},
+	"s8.2": {
+		"prefix": "s8.2",
+		"body": [
+			"h1 {",
+			"  color: var(--feat);",
+			"}"
+		],
+		"description": "s8.2"
+	},
+	"s9.1": {
+		"prefix": "s9.1",
+		"body": [
+			"/* CSS reset */",
+			"*, *::before, *::after {",
+			"  box-sizing: border-box;",
+			"}",
+			"* {",
+			"  margin: 0;",
+			"}",
+			"html {",
+			"  scroll-behavior: smooth;",
+			"  height: 100%;",
+			"}",
+			"body {",
+			"  font-family: var(--body-font);",
+			"  line-height: 1.5;",
+			"  -webkit-font-smoothing: antialiased;",
+			"  color: var(--text);",
+			"  background: var(--bg);",
+			"  height: 100%;",
+			"}",
+			"img, picture, video, canvas, svg {",
+			"  display: block;",
+			"  max-width: 100%;",
+			"}",
+			"input, button, textarea, select {",
+			"  font: inherit;",
+			"}",
+			"h1, h2, h3, h4, h5, h6 {",
+			"  font-family: var(--heading-font);",
+			"  font-size: 1rem;",
+			"  overflow-wrap: break-word;",
+			"  font-weight: normal;",
+			"}",
+			"ul {",
+			"  list-style-type: none;",
+			"  padding: 0;",
+			"}",
+			"ol {",
+			"  padding: 0;",
+			"}",
+			"a {",
+			"  color: var(--text);",
+			"  text-decoration: none;",
+			"  text-underline-offset: 2px;",
+			"}",
+			"button {",
+			"  color: var(--text);",
+			"  border: none;",
+			"  cursor: pointer;",
+			"  padding: 0;",
+			"  background: none;",
+			"  touch-action: manipulation;",
+			"}",
+			"*:focus {",
+			"  outline-color: var(--text); /* change outline color */",
+			"}"
+		],
+		"description": "s9.1"
+	},
+	"s9.2": {
+		"prefix": "s9.2",
+		"body": [
+			"/* Classes */",
+			".container {",
+			"  margin: auto;",
+			"  padding-left: 20px;",
+			"  padding-right: 20px;",
+			"  max-width: 980px;",
+			"}"
+		],
+		"description": "s9.2"
+	},
+	"s10.1": {
+		"prefix": "s10.1",
+		"body": [
+			"<svelte:head>",
+			"  <title>Local Portfolio</title>",
+			"</svelte:head>"
+		],
+		"description": "s10.1"
+	},
+	"s10.2": {
+		"prefix": "s10.2",
+		"body": [
+			"<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">",
+			"<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>",
+			"<link href=\"https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Palanquin+Dark&display=swap\" rel=\"stylesheet\">"
+		],
+		"description": "s10.2"
+	},
+	"s11": {
+		"prefix": "s11",
+		"body": [
+			"h2 {",
+			"  color: green;",
+			"}"
+		],
+		"description": "s11"
+	},
+	"s12.1": {
+		"prefix": "s12.1",
+		"body": [
+			"<header>",
+			"  <div class=\"container header__container\">",
+			"    <nav>",
+			"      <a href=\"/\">Logo</a>",
+			"      <ul>",
+			"        <li><a href=\"/\">Home</a></li>",
+			"        <li><a href=\"/about\">About</a></li>",
+			"        <li><a href=\"/projects\">Projects</a></li>",
+			"      </ul>",
+			"      <a href=\"/\">Request a quote</a>",
+			"    </nav>",
+			"  </div>",
+			"</header>",
+			"",
+			"",
+			"<style>",
+			"  header {",
+			"    box-shadow: var(--box-shadow);",
+			"  }",
+			"  nav {",
+			"    padding-top: 16px;",
+			"    padding-bottom: 16px;",
+			"    display: flex;",
+			"    font-family: var(--heading-font);",
+			"    align-items: center;",
+			"  }",
+			"  nav ul {",
+			"    display: flex;",
+			"    gap: 24px;",
+			"    margin-left: auto;",
+			"    margin-right: 60px;",
+			"  }",
+			"</style>"
+		],
+		"description": "s12.1"
+	},
+	"s12.2": {
+		"prefix": "s12.2",
+		"body": [
+			".btn {",
+			"  font-family: var(--heading-font);",
+			"  background-color: #fff;",
+			"  padding: 12px 16px;",
+			"  border-radius: 4px;",
+			"  display: flex;",
+			"  align-items: center;",
+			"  gap: 6px;",
+			"  width: fit-content;",
+			"  transition: 250ms;",
+			"}",
+			".btn:hover {",
+			"  background-color: var(--bg);",
+			"  transition: 125ms;",
+			"}"
+		],
+		"description": "s12.2"
+	},
+	"s14.1": {
+		"prefix": "s14.1",
+		"body": [
+			"<script>",
+			"  import img from \"$$lib/assets/default.jpg\";",
+			"</script>",
+			"",
+			"<section>",
+			"  <div class=\"img\">",
+			"    <img src={img} alt=\"\">",
+			"  </div>",
+			"  <div class=\"container info\">",
+			"    <h1>Svelte & WordPress developer</h1>",
+			"    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ultricies arcu eu vehicula pellentesque. Ut nec faucibus magna. Sed sed vestibulum diam. Aliquam tristique ante vitae diam ultrices, ut viverra libero consectetur. Integer porta quam sed sem rutrum tempus. Nulla pretium lorem id diam ultricies, vitae aliquam.</p>",
+			"  </div>",
+			"</section>",
+			"",
+			"<style>",
+			"  section {",
+			"    position: relative;",
+			"    display: grid;",
+			"  }",
+			"  img {",
+			"    height: 360px;",
+			"    width: 100%;",
+			"    object-fit: cover;",
+			"  }",
+			"  .img {",
+			"    grid-area: 1/1;",
+			"  }",
+			"  .img::after {",
+			"    content: '';",
+			"    position: absolute;",
+			"    inset: 0;",
+			"    background-color: var(--text);",
+			"    mix-blend-mode: multiply;",
+			"  }",
+			"  .info {",
+			"    grid-area: 1/1;",
+			"    position: relative;",
+			"    width: 100%;",
+			"    height: 100%;",
+			"    padding-top: 60px;",
+			"    padding-bottom: 60px;",
+			"    display: flex;",
+			"    flex-direction: column;",
+			"    justify-content: flex-end;",
+			"    align-items: flex-start;",
+			"  }",
+			"  h1 {",
+			"    font-size: calc(36 / 16 * 1rem);",
+			"    color: #fff;",
+			"    line-height: 1.2;",
+			"    max-width: 620px;",
+			"  }",
+			"  h1::before {",
+			"    content: '';",
+			"    display: block;",
+			"    background-color: var(--feat);",
+			"    width: 60px;",
+			"    height: 8px;",
+			"    position: relative;",
+			"    top: -8px;",
+			"  }",
+			"  p {",
+			"    margin-top: 16px;",
+			"    color: #fff;",
+			"    max-width: 620px;",
+			"  }",
+			"</style>"
+		],
+		"description": "s14.1"
+	},
+	"s14.2": {
+		"prefix": "s14.2",
+		"body": [
+			"import img from \"$$lib/assets/default.jpg\";"
+		],
+		"description": "s14.2"
+	},
+	"s15.1": {
+		"prefix": "s15.1",
+		"body": [
+			"<footer class=\"footer\">",
+			"  <div class=\"container footer__container\">",
+			"    <p>© Local Portfolio, 2023</p>",
+			"    <p>Developed by <a href=\"https://artneo.com.br\" rel=\"nofollow\" target=\"_blank\">Artneo</a></p>",
+			"  </div>",
+			"</footer>",
+			"",
+			"<style>",
+			"  .footer__container {",
+			"    display: flex;",
+			"    flex-wrap: wrap;",
+			"    justify-content: space-between;",
+			"    gap: 8px;",
+			"    padding-top: 32px;",
+			"    padding-bottom: 32px;",
+			"    position: relative;",
+			"  }",
+			"  .footer__container::before {",
+			"    content: '';",
+			"    display: block;",
+			"    height: 2px;",
+			"    background-color: var(--subtle);",
+			"    position: absolute;",
+			"    top: 0;",
+			"    width: calc(100% - 40px);",
+			"  }",
+			"  p {",
+			"    color: var(--text-2);",
+			"    font-size: calc(14 / 16 * 1rem);",
+			"  }",
+			"  a {",
+			"    color: var(--text-2);",
+			"  }",
+			"  a:hover {",
+			"    text-decoration: underline;",
+			"  }",
+			"</style>"
+		],
+		"description": "s15.1"
+	},
+	"s15.2": {
+		"prefix": "s15.2",
+		"body": [
+			"main {",
+			"  margin-bottom: auto;",
+			"}"
+		],
+		"description": "s15.2"
+	},
+	"s15.3": {
+		"prefix": "s15.3",
+		"body": [
+			".footer {",
+			"  position: relative;",
+			"  top: 85px;",
+			"  background-color: lightgreen;",
+			"}"
+		],
+		"description": "s15.3"
+	},
+	"s16.1": {
+		"prefix": "s16.1",
+		"body": [
+			"<script>",
+			"  import { Splide, SplideSlide } from '@splidejs/svelte-splide';",
+			"  import '@splidejs/svelte-splide/css';",
+			" ",
+			"  import img from \"$$lib/assets/default.jpg\"; // test image",
+			"</script>",
+			"",
+			"<Splide aria-label=\"Portfolio items\">",
+			"  <SplideSlide>",
+			"    <img src={img} alt=\"\"/>",
+			"  </SplideSlide>",
+			"  <SplideSlide>",
+			"    <img src={img} alt=\"\"/>",
+			"  </SplideSlide>",
+			"  <SplideSlide>",
+			"    <img src={img} alt=\"\"/>",
+			"  </SplideSlide>",
+			"</Splide>"
+		],
+		"description": "s16.1"
+	},
+	"s16.2": {
+		"prefix": "s16.2",
+		"body": [
+			"// slider options",
+			"let options = {",
+			"  perPage: 2,",
+			"  gap: 20,",
+			"  arrows: true,",
+			"  pagination: false // disable dots navigation",
+			"}"
+		],
+		"description": "s16.2"
+	},
+	"s17.1": {
+		"prefix": "s17.1",
+		"body": [
+			"<script>",
+			"  import img from '$$lib/assets/default.jpg';",
+			"</script>",
+			"",
+			"<a href=\"/\">",
+			"  <span class=\"decoration\"></span>",
+			"  <div class=\"info\">",
+			"    <img src={img} alt=\"\" width=\"260\" height=\"169\">",
+			"    <h3>Portfolio item #1</h3>",
+			"  </div>",
+			"</a>",
+			"",
+			"<style>",
+			"  a {",
+			"    display: grid;",
+			"    width: 300px;",
+			"  }",
+			"  a:focus {",
+			"    outline-offset: -4px; /* make slide outline visible */",
+			"  }",
+			"  .decoration {",
+			"    grid-area: 1/1;",
+			"    border: 2px solid var(--subtle);",
+			"    display: block;",
+			"    height: 174px;",
+			"    border-radius: 4px;",
+			"    transition: 250ms;",
+			"  }",
+			"  a:hover .decoration {",
+			"    border-color: var(--text-2);",
+			"    transition: 125ms;",
+			"  }",
+			"  .info {",
+			"    grid-area: 1/1;",
+			"    transition: 250ms;",
+			"  }",
+			"  img {",
+			"    margin: 20px;",
+			"    border-radius: 4px;",
+			"    object-fit: cover;",
+			"  }",
+			"  h3 {",
+			"    font-family: var(--body-font);",
+			"    font-size: calc(14 / 16 * 1rem);",
+			"    margin-top: -12px;",
+			"    margin-left: 20px;",
+			"    margin-right: 20px;",
+			"    padding-bottom: 20px;",
+			"  }",
+			"</style>"
+		],
+		"description": "s17.1"
+	},
+	"s17.2": {
+		"prefix": "s17.2",
+		"body": [
+			"<style>",
+			"  .slider {",
+			"    margin-top: 32px;",
+			"  }",
+			"  h2 {",
+			"    font-size: calc(24 / 16 * 1rem);",
+			"    margin-bottom: 8px;",
+			"  }",
+			"</style>"
+		],
+		"description": "s17.2"
+	},
+	"s18.1": {
+		"prefix": "s18.1",
+		"body": [
+			"import { writable } from \"svelte/store\";"
+		],
+		"description": "s18.1"
+	},
+	"s18.2": {
+		"prefix": "s18.2",
+		"body": [
+			"import portfolio1 from '$$lib/assets/portfolio-1.jpg';",
+			"import portfolio2 from '$$lib/assets/portfolio-2.jpg';",
+			"import portfolio3 from '$$lib/assets/portfolio-3.jpg';",
+			"import portfolio4 from '$$lib/assets/portfolio-4.jpg';"
+		],
+		"description": "s18.2"
+	},
+	"s18.3": {
+		"prefix": "s18.3",
+		"body": [
+			"export const projects = writable(true);"
+		],
+		"description": "s18.3"
+	},
+	"s18.4": {
+		"prefix": "s18.4",
+		"body": [
+			"{",
+			"  title: 'Portfolio item #1',",
+			"  img: portfolio1",
+			"},",
+			"{",
+			"  title: 'Portfolio item #2',",
+			"  img: portfolio2",
+			"},",
+			"{",
+			"  title: 'Portfolio item #3',",
+			"  img: portfolio3",
+			"},",
+			"{",
+			"  title: 'Portfolio item #4',",
+			"  img: portfolio4",
+			"}"
+		],
+		"description": "s18.4"
+	},
+	"s18.5": {
+		"prefix": "s18.5",
+		"body": [
+			"import { projects } from '$$lib/stores';"
+		],
+		"description": "s18.5"
+	},
+	"s20.1": {
+		"prefix": "s20.1",
+		"body": [
+			"let img = defaultImage;",
+			"let title = 'Portfolio item #1';"
+		],
+		"description": "s20.1"
+	},
+	"s20.2": {
+		"prefix": "s20.2",
+		"body": [
+			"title={item.title} img={item.img}"
+		],
+		"description": "s20.2"
+	},
+	"s21.1": {
+		"prefix": "s21.1",
+		"body": [
+			".quote {",
+			"  margin-top: 90px;",
+			"}"
+		],
+		"description": "s21.1"
+	},
+	"s21.2": {
+		"prefix": "s21.2",
+		"body": [
+			"<script>",
+			"  import { Briefcase, ChevronsUpDown, Send, User2 } from \"lucide-svelte\";",
+			"</script>",
+			"",
+			"<section id=\"quote\">",
+			"  <div class=\"group\">",
+			"    <h2>Request a quote</h2>",
+			"    <div class=\"icon\"><User2/></div>",
+			"    <form>",
+			"      <input placeholder=\"First name\" required>",
+			"      <input placeholder=\"Last name\" required>",
+			"      <input placeholder=\"Email\" type=\"email\" required>",
+			"      <input placeholder=\"Phone\" required>",
+			"      <button type=\"submit\" hidden>Send</button>",
+			"    </form>",
+			"    <span>Mark</span>",
+			"  </div>",
+			"",
+			"  <div class=\"group group--2\">",
+			"    <h2>How may I help you?</h2>",
+			"    <div class=\"icon\"><Briefcase/></div>",
+			"    <form>",
+			"      <select name=\"questions\">",
+			"        <option value=\"contact\">I just want to say hi!</option>",
+			"        <option value=\"logo\">I want to create a logo</option>",
+			"        <option value=\"website\">I need a new website</option>",
+			"        <option value=\"app\">I want an app</option>",
+			"      </select>",
+			"      <div class=\"arrows\">",
+			"        <ChevronsUpDown/>",
+			"      </div>",
+			"      <textarea name=\"message\" placeholder=\"Message\" required></textarea>",
+			"      <button class=\"btn\" type=\"submit\"><Send/> Send form</button>",
+			"    </form>",
+			"    <span>Mark</span>",
+			"  </div>",
+			"</section>",
+			"",
+			"<style>",
+			"  .group {",
+			"    display: flex;",
+			"    flex-wrap: wrap;",
+			"    gap: 32px 16px;",
+			"    position: relative; /* align mark icon */",
+			"  }",
+			"  h2 {",
+			"    font-size: calc(24 / 16 * 1rem);",
+			"    padding-bottom: 8px;",
+			"    border-bottom: 2px solid var(--subtle);",
+			"    width: 100%;",
+			"  }",
+			"  .icon {",
+			"    height: 48px;",
+			"    width: 48px;",
+			"    background-color: var(--subtle);",
+			"    display: flex;",
+			"    align-items: center;",
+			"    justify-content: center;",
+			"    border-radius: 50%;",
+			"  }",
+			"  form {",
+			"    display: grid;",
+			"    grid-template-columns: repeat(2, 300px);",
+			"    gap: 20px;",
+			"    position: relative; /* alig arrows icon */",
+			"  }",
+			"  input, select, textarea {",
+			"    border: none;",
+			"    height: 60px;",
+			"    padding: 16px;",
+			"    border-radius: 4px;",
+			"    color: var(--text-1);",
+			"    opacity: 1;",
+			"  }",
+			"  ::placeholder {",
+			"    font-family: var(--heading-font);",
+			"    color: var(--text-2);",
+			"  }",
+			"  .group--2 {",
+			"    margin-top: 60px;",
+			"  }",
+			"  select {",
+			"    grid-column: span 2;",
+			"",
+			"    /* remove native browser arrow icon */",
+			"    -moz-appearance: none;",
+			"    -webkit-appearance: none;",
+			"    appearance: none;",
+			"  }",
+			"  textarea {",
+			"    grid-column: span 2;",
+			"    height: 180px;",
+			"    resize: none; /* remove option to resize */",
+			"  }",
+			"  .arrows {",
+			"    position: absolute;",
+			"    top: 18px;",
+			"    right: 16px;",
+			"    pointer-events: none; /* select field instead of icon */",
+			"  }",
+			"</style>"
+		],
+		"description": "s21.2"
+	},
+	"s22": {
+		"prefix": "s22",
+		"body": [
+			"export const form = writable({",
+			"  firstname: '',",
+			"  lastname: '',",
+			"  email: '',",
+			"  phone: '',",
+			"  question: '',",
+			"  message: ''",
+			"});"
+		],
+		"description": "s22"
+	},
+	"s23.1": {
+		"prefix": "s23.1",
+		"body": [
+			"import { form } from '$$lib/stores';"
+		],
+		"description": "s23.1"
+	},
+	"s23.2": {
+		"prefix": "s23.2",
+		"body": [
+			"$: console.log($$form);"
+		],
+		"description": "s23.2"
+	},
+	"s23.3": {
+		"prefix": "s23.3",
+		"body": [
+			"bind:value={$$form.firstname}"
+		],
+		"description": "s23.3"
+	},
+	"s24.1": {
+		"prefix": "s24.1",
+		"body": [
+			"function submitFirstForm() {",
+			"  console.log('Form submitted');",
+			"}"
+		],
+		"description": "s24.1"
+	},
+	"s24.2": {
+		"prefix": "s24.2",
+		"body": [
+			"on:blur={submitFirstForm}"
+		],
+		"description": "s24.2"
+	},
+	"s24.3": {
+		"prefix": "s24.3",
+		"body": [
+			"if (!$$form.firstname || !$$form.lastname || !$$form.email || !$$form.phone) return;"
+		],
+		"description": "s24.3"
+	},
+	"s25.1": {
+		"prefix": "s25.1",
+		"body": [
+			"let showSecondForm;",
+			"let buttonElement;"
+		],
+		"description": "s25.1"
+	},
+	"s25.2": {
+		"prefix": "s25.2",
+		"body": [
+			"bind:this={buttonElement}"
+		],
+		"description": "s25.2"
+	},
+	"s25.3": {
+		"prefix": "s25.3",
+		"body": [
+			"// trigger first form submission",
+			"buttonElement.click();"
+		],
+		"description": "s25.3"
+	},
+	"s25.4": {
+		"prefix": "s25.4",
+		"body": [
+			"function handleFirstFormSubmission() {",
+			"  console.log('Ok');",
+			"}"
+		],
+		"description": "s25.4"
+	},
+	"s27.1": {
+		"prefix": "s27.1",
+		"body": [
+			"let selectElement;"
+		],
+		"description": "s27.1"
+	},
+	"s27.2": {
+		"prefix": "s27.2",
+		"body": [
+			"bind:this={selectElement}"
+		],
+		"description": "s27.2"
+	},
+	"s27.3": {
+		"prefix": "s27.3",
+		"body": [
+			"selectElement.focus();"
+		],
+		"description": "s27.3"
+	},
+	"s27.4": {
+		"prefix": "s27.4",
+		"body": [
+			"// await for the next microtask",
+			"import { tick } from \"svelte\";",
+			"await tick();"
+		],
+		"description": "s27.4"
+	},
+	"s27.5": {
+		"prefix": "s27.5",
+		"body": [
+			"selectElement.scrollIntoView({ behavior: 'smooth' });"
+		],
+		"description": "s27.5"
+	},
+	"s27.6": {
+		"prefix": "s27.6",
+		"body": [
+			"setTimeout(() => {",
+			"  selectElement.scrollIntoView({ behavior: 'smooth' });",
+			"}, 50);"
+		],
+		"description": "s27.6"
+	},
+	"s28.1": {
+		"prefix": "s28.1",
+		"body": [
+			"export let title = '';",
+			"export let introduction = '';"
+		],
+		"description": "s28.1"
+	},
+	"s28.2": {
+		"prefix": "s28.2",
+		"body": [
+			"title=\"About us\" introduction=\"Content here.\""
+		],
+		"description": "s28.2"
+	},
+	"s30": {
+		"prefix": "s30",
+		"body": [
+			"/* Theme Name: Local Portfolio */"
+		],
+		"description": "s30"
+	},
+	"s31.1": {
+		"prefix": "s31.1",
+		"body": [
+			"// remove access /wp-json/wp/v2/users",
+			"add_filter('rest_endpoints', function ($$endpoints) {",
+			"  unset($$endpoints['/wp/v2/users']);",
+			"  unset($$endpoints['/wp/v2/users/(?P<id>[\\d]+)']);",
+			"",
+			"  return $$endpoints;",
+			"});"
+		],
+		"description": "s31.1"
+	},
+	"s31.2": {
+		"prefix": "s31.2",
+		"body": [
+			"// change path wp-json to json",
+			"function change_api_path() {",
+			"  return 'json';",
+			"}",
+			"add_filter('rest_url_prefix', 'change_api_path');"
+		],
+		"description": "s31.2"
+	},
+	"s32.1": {
+		"prefix": "s32.1",
+		"body": [
+			"// disable Gutenberg",
+			"add_filter('use_block_editor_for_post', '__return_false');"
+		],
+		"description": "s32.1"
+	},
+	"s32.2": {
+		"prefix": "s32.2",
+		"body": [
+			"// enable featured image",
+			"add_theme_support('post-thumbnails');"
+		],
+		"description": "s32.2"
+	},
+	"s33": {
+		"prefix": "s33",
+		"body": [
+			"// endpoint registration",
+			"function register_api_endpoint() {",
+			"  register_rest_route('api', '/projects', [",
+			"    'methods' => 'GET',",
+			"    'callback' => 'api_endpoint'",
+			"  ]);",
+			"}",
+			"add_action('rest_api_init', 'register_api_endpoint');",
+			"",
+			"// endpoint customization",
+			"function api_endpoint() {",
+			"  $data = 'Test';",
+			"",
+			"  return rest_ensure_response($data);",
+			"}"
+		],
+		"description": "s33"
+	}
+}
