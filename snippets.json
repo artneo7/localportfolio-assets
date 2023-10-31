@@ -22,7 +22,7 @@
 	"s6.2": {
 		"prefix": "s6.2",
 		"body": [
-			"import '$lib/global.css';"
+			"import '$$lib/global.css';"
 		],
 		"description": "s6.2"
 	},
@@ -878,7 +878,7 @@
 	"s36.2": {
 		"prefix": "s36.2",
 		"body": [
-			"$data = get_posts([",
+			"$$data = get_posts([",
 			"  'post_type' => 'post',",
 			"  'posts_per_page' => -1,",
 			"  'fields' => 'ids'",
