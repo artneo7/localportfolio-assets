@@ -860,11 +860,975 @@
 			"",
 			"// endpoint customization",
 			"function api_endpoint() {",
-			"  $data = 'Test';",
+			"  $$data = 'Test';",
 			"",
-			"  return rest_ensure_response($data);",
+			"  return rest_ensure_response($$data);",
 			"}"
 		],
 		"description": "s33"
+	},
+	"s36.1": {
+		"prefix": "s36.1",
+		"body": [
+			"// Endpoints",
+			"require_once get_template_directory() . '/endpoints/projects.php';"
+		],
+		"description": "s36.1"
+	},
+	"s36.2": {
+		"prefix": "s36.2",
+		"body": [
+			"$data = get_posts([",
+			"  'post_type' => 'post',",
+			"  'posts_per_page' => -1,",
+			"  'fields' => 'ids'",
+			"]);"
+		],
+		"description": "s36.2"
+	},
+	"s36.3": {
+		"prefix": "s36.3",
+		"body": [
+			"$$projects = [];",
+			"foreach ($$data as $$id) {",
+			"  $$projects[] = [",
+			"    'title' => get_the_title($$id),",
+			"    'img' => get_the_post_thumbnail_url($$id, 'medium_large'),",
+			"    'img_full' => get_the_post_thumbnail_url($id),",
+			"    'alt' => get_the_post_thumbnail_caption($$id),",
+			"    'slug' => get_post_field('post_name', $$id)",
+			"  ];",
+			"}"
+		],
+		"description": "s36.3"
+	},
+	"s37": {
+		"prefix": "s37",
+		"body": [
+			"// create an error if no posts are found",
+			"if (empty($$data)) {",
+			"  return new WP_Error('No posts to show');",
+			"}"
+		],
+		"description": "s37"
+	},
+	"s38.1": {
+		"prefix": "s38.1",
+		"body": [
+			"/(?P<slug>[a-zA-Z0-9-]+)"
+		],
+		"description": "s38.1"
+	},
+	"s38.2": {
+		"prefix": "s38.2",
+		"body": [
+			"// get only the id",
+			"$$id = $$id[0];"
+		],
+		"description": "s38.2"
+	},
+	"s38.3": {
+		"prefix": "s38.3",
+		"body": [
+			"// get project info",
+			"$$project = [",
+			"  'id' => $$id,",
+			"  'title' => get_the_title($$id),",
+			"  'img' => get_the_post_thumbnail_url($$id),",
+			"  'content' => get_the_content(null, null, $$id)",
+			"];"
+		],
+		"description": "s38.3"
+	},
+	"s40": {
+		"prefix": "s40",
+		"body": [
+			"'introduction' => get_field('page__introduction', $$id)"
+		],
+		"description": "s40"
+	},
+	"s43": {
+		"prefix": "s43",
+		"body": [
+			"<?php",
+			"// endpoint registration",
+			"function register_api_quotes() {",
+			"  register_rest_route('api', '/quotes', [",
+			"    'methods' => 'GET',",
+			"    'callback' => 'api_quotes'",
+			"  ]);",
+			"}",
+			"add_action('rest_api_init', 'register_api_quotes');",
+			"",
+			"// endpoint customization",
+			"function api_quotes() {",
+			"  $$data = 'Test';",
+			"",
+			"  return rest_ensure_response($$data);",
+			"}"
+		],
+		"description": "s43"
+	},
+	"s45": {
+		"prefix": "s45",
+		"body": [
+			"// create quote",
+			"wp_insert_post([",
+			"  'post_title' => \"New title here\",",
+			"  'post_status' => 'publish',",
+			"  'post_type' => 'quote'",
+			"]);"
+		],
+		"description": "s45"
+	},
+	"s46.1": {
+		"prefix": "s46.1",
+		"body": [
+			"{",
+			"  \"firstname\": \"Name 1\",",
+			"  \"lastname\": \"Name 2\",",
+			"  \"email\": \"test@test.com\",",
+			"  \"phone\": \"(123) 456-7890\",",
+			"  \"question\": \"contact\",",
+			"  \"message\": \"Testing 123\"",
+			"}"
+		],
+		"description": "s46.1"
+	},
+	"s46.2": {
+		"prefix": "s46.2",
+		"body": [
+			"// user information",
+			"$$firstname = $$request['firstname'];",
+			"$$lastname = $$request['lastname'];",
+			"$$email = $$request['email'];",
+			"$$phone = $$request['phone'];",
+			"$$question = $$request['question'];",
+			"$$message = $$request['message'];",
+			"$$name = \"{$$firstname} {$$lastname}\";"
+		],
+		"description": "s46.2"
+	},
+	"s47.1": {
+		"prefix": "s47.1",
+		"body": [
+			"$$firstname = sanitize_text_field($$request['firstname']);"
+		],
+		"description": "s47.1"
+	},
+	"s47.2": {
+		"prefix": "s47.2",
+		"body": [
+			"// user information",
+			"$$firstname = sanitize_text_field($$request['firstname']);",
+			"$$lastname = sanitize_text_field($$request['lastname']);",
+			"$$email = sanitize_email($$request['email']);",
+			"$$phone = sanitize_text_field($$request['phone']);",
+			"$$question = sanitize_text_field($$request['question']);",
+			"$$message = sanitize_textarea_field($$request['message']);",
+			"$$name = \"{$$firstname} {$$lastname}\";"
+		],
+		"description": "s47.2"
+	},
+	"s48.1": {
+		"prefix": "s48.1",
+		"body": [
+			"// create error if information is not complete",
+			"if (empty($$firstname) || empty($$lastname) || empty($$email) || empty($$phone) || empty($$question) || empty($$message)) {",
+			"  return new WP_Error('Please fill in all fields');",
+			"}"
+		],
+		"description": "s48.1"
+	},
+	"s48.2": {
+		"prefix": "s48.2",
+		"body": [
+			"// update custom fields (ACF)",
+			"update_field('quote__name', $$name, $$id);",
+			"update_field('quote__email', $$email, $$id);",
+			"update_field('quote__phone', $$phone, $$id);",
+			"update_field('quote__question', $$question, $$id);",
+			"update_field('quote__message', $$message, $$id);"
+		],
+		"description": "s48.2"
+	},
+	"s48.3": {
+		"prefix": "s48.3",
+		"body": [
+			"{$$name} | {$$question}"
+		],
+		"description": "s48.3"
+	},
+	"s48.4": {
+		"prefix": "s48.4",
+		"body": [
+			"return rest_ensure_response([",
+			"  'id' => $$id,",
+			"  'quote' => true",
+			"]);"
+		],
+		"description": "s48.4"
+	},
+	"s49.1": {
+		"prefix": "s49.1",
+		"body": [
+			"// make custom field read-only (ACF)",
+			"add_filter('acf/load_field', 'acf_read_only_field');",
+			"function acf_read_only_field($$field) {",
+			"  if( 'quote__name' === $$field['name'] ) {",
+			"    $$field['disabled'] = true;  ",
+			"  }",
+			"",
+			"  return $$field;",
+			"}"
+		],
+		"description": "s49.1"
+	},
+	"s49.2": {
+		"prefix": "s49.2",
+		"body": [
+			"if( 'quote__email' === $$field['name'] ) {",
+			"  $$field['disabled'] = true;  ",
+			"}",
+			"if( 'quote__phone' === $$field['name'] ) {",
+			"  $$field['disabled'] = true;  ",
+			"}",
+			"if( 'quote__question' === $$field['name'] ) {",
+			"  $$field['disabled'] = true;  ",
+			"}",
+			"if( 'quote__message' === $$field['name'] ) {",
+			"  $$field['disabled'] = true;  ",
+			"}"
+		],
+		"description": "s49.2"
+	},
+	"s50.1": {
+		"prefix": "s50.1",
+		"body": [
+			"// send email",
+			"$$to = 'test@test.com';",
+			"$$subject = 'Test subject';",
+			"$$body = 'Test body';",
+			"$$sent = wp_mail($$to, $$subject, $$body);"
+		],
+		"description": "s50.1"
+	},
+	"s50.2": {
+		"prefix": "s50.2",
+		"body": [
+			"$$headers[] = \"From: Local Portfolio <{$$to}>\";",
+			"$$headers[] = \"Reply-To: {$$name} <{$$email}>\";"
+		],
+		"description": "s50.2"
+	},
+	"s51.1": {
+		"prefix": "s51.1",
+		"body": [
+			"$$user_ip = $$_SERVER['REMOTE_ADDR']; // Get the IP address of the user",
+			"$$last_quote_time = get_transient($$user_ip); // Get the time the last quote was created"
+		],
+		"description": "s51.1"
+	},
+	"s51.2": {
+		"prefix": "s51.2",
+		"body": [
+			"// If the last quote was created less than 60 seconds ago, return an error",
+			"if ($$last_quote_time && (time() - $$last_quote_time < 60)) {",
+			"  return new WP_Error('Please wait a bit and try again');",
+			"}"
+		],
+		"description": "s51.2"
+	},
+	"s51.3": {
+		"prefix": "s51.3",
+		"body": [
+			"// After creating the quote, store the current time as a transient",
+			"set_transient($$user_ip, time(), 60); // The transient will expire after 60 seconds"
+		],
+		"description": "s51.3"
+	},
+	"s52.1": {
+		"prefix": "s52.1",
+		"body": [
+			"export const load = async () => {",
+			"",
+			"  return {",
+			"    projects: 'Test'",
+			"  }",
+			"}",
+			""
+		],
+		"description": "s52.1"
+	},
+	"s52.2": {
+		"prefix": "s52.2",
+		"body": [
+			"// get content from +page.js",
+			"export let data;",
+			"console.log(data);"
+		],
+		"description": "s52.2"
+	},
+	"s52.3": {
+		"prefix": "s52.3",
+		"body": [
+			"const fetchProjects = async () => {",
+			"  const response = await fetch('http://localportfolio.test/json/api/projects');",
+			"  const projects = await response.json();",
+			"",
+			"  return projects;",
+			"}"
+		],
+		"description": "s52.3"
+	},
+	"s53.1": {
+		"prefix": "s53.1",
+		"body": [
+			"PUBLIC_URL_DATABASE=http://localportfolio.test"
+		],
+		"description": "s53.1"
+	},
+	"s53.2": {
+		"prefix": "s53.2",
+		"body": [
+			"import { PUBLIC_URL_DATABASE } from '$$env/static/public';"
+		],
+		"description": "s53.2"
+	},
+	"s54.1": {
+		"prefix": "s54.1",
+		"body": [
+			"{#if data.projects.length}",
+			"{/if}"
+		],
+		"description": "s54.1"
+	},
+	"s54.2": {
+		"prefix": "s54.2",
+		"body": [
+			"export let projects = [];"
+		],
+		"description": "s54.2"
+	},
+	"s56.1": {
+		"prefix": "s56.1",
+		"body": [
+			"{`/project/$${slug}`}"
+		],
+		"description": "s56.1"
+	},
+	"s56.2": {
+		"prefix": "s56.2",
+		"body": [
+			"slug={item.slug}"
+		],
+		"description": "s56.2"
+	},
+	"s57": {
+		"prefix": "s57",
+		"body": [
+			"<script>",
+			"  import Intro from \"$$lib/Intro.svelte\";",
+			"</script>",
+			"",
+			"<Intro title=\"Project name\" introduction=\"Project introduction. \"/>"
+		],
+		"description": "s57"
+	},
+	"s58.1": {
+		"prefix": "s58.1",
+		"body": [
+			"import { PUBLIC_URL_DATABASE } from '$$env/static/public';",
+			"",
+			"export const load = async ({fetch, params}) => {",
+			"  console.log(params);",
+			"  const fetchProject = async () => {",
+			"    const response = await fetch(`$${PUBLIC_URL_DATABASE}/json/api/project/${params.slug}`);",
+			"    const project = await response.json();",
+			" ",
+			"    return project;",
+			"  }",
+			"",
+			"  return {",
+			"    project: fetchProject()",
+			"  }",
+			"}"
+		],
+		"description": "s58.1"
+	},
+	"s58.2": {
+		"prefix": "s58.2",
+		"body": [
+			"// get content from +page.js",
+			"export let data;",
+			"console.log(data);"
+		],
+		"description": "s58.2"
+	},
+	"s58.3": {
+		"prefix": "s58.3",
+		"body": [
+			"<Intro title={data.project.title} introduction={data.project.introduction} img={data.project.img} />"
+		],
+		"description": "s58.3"
+	},
+	"s58.4": {
+		"prefix": "s58.4",
+		"body": [
+			"{#if introduction}",
+			"{/if}"
+		],
+		"description": "s58.4"
+	},
+	"s58.5": {
+		"prefix": "s58.5",
+		"body": [
+			"<section class=\"container content\">",
+			"  {data.project.content}",
+			"</section>",
+			"",
+			"<style>",
+			"  section {",
+			"    margin-top: 32px;",
+			"  }",
+			"</style>"
+		],
+		"description": "s58.5"
+	},
+	"s59": {
+		"prefix": "s59",
+		"body": [
+			"/* Content */",
+			".content * {",
+			"  font-size: calc(18 / 16 * 1rem);",
+			"}",
+			".content *+* {",
+			"  --gap: 16px;",
+			"  margin-top: var(--gap);",
+			"}",
+			".content a {",
+			"  text-decoration: underline;",
+			"}",
+			".content a:hover {",
+			"  text-decoration-color: var(--feat);",
+			"}",
+			".content ol {",
+			"  margin-bottom: calc(var(--gap) + 8px);",
+			"}",
+			".content ol li::marker {",
+			"  color: var(--feat);",
+			"}",
+			".content ul {",
+			"  margin-bottom: calc(var(--gap) + 8px);",
+			"}",
+			".content li {",
+			"  position: relative;",
+			"  margin-left: 14px;",
+			"}",
+			".content ul li::before {",
+			"  content: '';",
+			"  display: block;",
+			"  width: 8px;",
+			"  height: 8px;",
+			"  background-color: var(--feat);",
+			"  border-radius: 1px;",
+			"  position: absolute;",
+			"  top: 10px;",
+			"  left: -14px;",
+			"}",
+			".content h2 {",
+			"  font-size: calc(24 / 16 * 1rem);",
+			"  margin-top: calc(var(--gap) + 16px);",
+			"  margin-bottom: calc(var(--gap) - 24px);",
+			"}",
+			".content h3 {",
+			"  font-size: calc(20 / 16 * 1rem);",
+			"  line-height: 1.4;",
+			"  text-transform: uppercase;",
+			"  margin-top: calc(var(--gap) + 16px);",
+			"  margin-bottom: calc(var(--gap) - 24px);",
+			"}"
+		],
+		"description": "s59"
+	},
+	"s60.1": {
+		"prefix": "s60.1",
+		"body": [
+			"<Intro title=\"Svelte & WordPress developer\" introduction=\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ultricies arcu eu vehicula pellentesque. Ut nec faucibus magna. Sed sed vestibulum diam. Aliquam tristique ante vitae diam ultrices, ut viverra libero consectetur. Integer porta quam sed sem rutrum tempus. Nulla pretium lorem id diam ultricies, vitae aliquam.\" />"
+		],
+		"description": "s60.1"
+	},
+	"s60.2": {
+		"prefix": "s60.2",
+		"body": [
+			"<script>",
+			"  import Intro from \"$$lib/Intro.svelte\";",
+			"</script>",
+			"",
+			"<Intro title=\"Error 404\" introduction=\"Please try accessing another page.\" />"
+		],
+		"description": "s60.2"
+	},
+	"s61": {
+		"prefix": "s61",
+		"body": [
+			"// use +error template",
+			"if (project.code) {",
+			"  throw error();",
+			"}"
+		],
+		"description": "s61"
+	},
+	"s62.1": {
+		"prefix": "s62.1",
+		"body": [
+			"import { page } from '$$app/stores';",
+			"$: console.log($$page);"
+		],
+		"description": "s62.1"
+	},
+	"s62.2": {
+		"prefix": "s62.2",
+		"body": [
+			"{`${$$page.status}: ${$$page.error.message}`}"
+		],
+		"description": "s62.2"
+	},
+	"s62.3": {
+		"prefix": "s62.3",
+		"body": [
+			"throw error(404, 'Page not found');"
+		],
+		"description": "s62.3"
+	},
+	"s63": {
+		"prefix": "s63",
+		"body": [
+			"<script>",
+			"  import Intro from \"$$lib/Intro.svelte\";",
+			"  import defaultImage from \"$$lib/assets/default.jpg\";",
+			"",
+			"  // get content from +page.js",
+			"  export let data;",
+			"</script>",
+			"",
+			"<Intro title={data.page.title} img={data.page.img || defaultImage} introduction={data.page.introduction} />",
+			"",
+			"<section class=\"container content\">",
+			"  {@html data.page.content}",
+			"</section>",
+			"",
+			"<style>",
+			"  section {",
+			"    margin-top: 32px;",
+			"  }",
+			"</style>"
+		],
+		"description": "s63"
+	},
+	"s64.1": {
+		"prefix": "s64.1",
+		"body": [
+			"const fetchProjects = async () => {",
+			"  try {",
+			"    const response = await fetch(`$${PUBLIC_URL_DATABASE}/json/api/projects`);",
+			"    const projects = await response.json();",
+			"    return projects;",
+			"  } catch (err) {",
+			"    console.log(err);",
+			"  }",
+			"}"
+		],
+		"description": "s64.1"
+	},
+	"s64.2": {
+		"prefix": "s64.2",
+		"body": [
+			"projects: fetchProjects()"
+		],
+		"description": "s64.2"
+	},
+	"s64.3": {
+		"prefix": "s64.3",
+		"body": [
+			"import { page } from '$$app/stores';",
+			"import Slide from \"$$lib/Slide.svelte\";"
+		],
+		"description": "s64.3"
+	},
+	"s64.4": {
+		"prefix": "s64.4",
+		"body": [
+			"$: console.log($$page);"
+		],
+		"description": "s64.4"
+	},
+	"s64.5": {
+		"prefix": "s64.5",
+		"body": [
+			"{#if $$page.params.slug === 'projects' }",
+			"<section class=\"container projects\">",
+			"  {#each data.projects as item}",
+			"  <Slide title={item.title} img={item.img} slug={item.slug} />",
+			"  {/each}",
+			"</section>",
+			"{/if}"
+		],
+		"description": "s64.5"
+	},
+	"s64.6": {
+		"prefix": "s64.6",
+		"body": [
+			".projects {",
+			"  display: flex;",
+			"  flex-wrap: wrap;",
+			"  gap: 0 20px;",
+			"}"
+		],
+		"description": "s64.6"
+	},
+	"s65.1": {
+		"prefix": "s65.1",
+		"body": [
+			"async function sendForm() {",
+			"  console.log('Form sent');",
+			"}"
+		],
+		"description": "s65.1"
+	},
+	"s65.2": {
+		"prefix": "s65.2",
+		"body": [
+			"on:submit|preventDefault={sendForm}"
+		],
+		"description": "s65.2"
+	},
+	"s65.3": {
+		"prefix": "s65.3",
+		"body": [
+			"export async function createQuote() {",
+			"  console.log('Quote created');",
+			"}"
+		],
+		"description": "s65.3"
+	},
+	"s65.4": {
+		"prefix": "s65.4",
+		"body": [
+			"import { createQuote } from '$$lib/api'"
+		],
+		"description": "s65.4"
+	},
+	"s66.1": {
+		"prefix": "s66.1",
+		"body": [
+			"import { PUBLIC_URL_DATABASE } from '$$env/static/public';",
+			"",
+			"export async function createQuote(form) {",
+			"  const response = await fetch(`$${PUBLIC_URL_DATABASE}/json/api/quotes`, {",
+			"    method: 'POST',",
+			"    headers: {",
+			"      'Content-Type': 'application/json',",
+			"    },",
+			"    body: JSON.stringify({",
+			"      firstname: form.firstname,",
+			"      lastname: form.lastname,",
+			"      email: form.email,",
+			"      phone: form.phone,",
+			"      question: form.question,",
+			"      message: form.message",
+			"    })",
+			"  })",
+			"  console.log(response);",
+			"",
+			"  const result = await response.json();",
+			"  console.log(result);",
+			" ",
+			"  return result;",
+			"}"
+		],
+		"description": "s66.1"
+	},
+	"s66.2": {
+		"prefix": "s66.2",
+		"body": [
+			"await createQuote($$form);"
+		],
+		"description": "s66.2"
+	},
+	"s66.3": {
+		"prefix": "s66.3",
+		"body": [
+			"return new WP_Error('Please fill in all fields');"
+		],
+		"description": "s66.3"
+	},
+	"s67.1": {
+		"prefix": "s67.1",
+		"body": [
+			"import toast, { Toaster } from 'svelte-french-toast';"
+		],
+		"description": "s67.1"
+	},
+	"s67.2": {
+		"prefix": "s67.2",
+		"body": [
+			"const toastLoading = toast.loading('Sending…');"
+		],
+		"description": "s67.2"
+	},
+	"s67.3": {
+		"prefix": "s67.3",
+		"body": [
+			"<Toaster/>"
+		],
+		"description": "s67.3"
+	},
+	"s67.4": {
+		"prefix": "s67.4",
+		"body": [
+			"// add 1 second delay",
+			"function delay(ms) {",
+			"  return new Promise(resolve => setTimeout(resolve, ms));",
+			"}",
+			"await delay(1000);"
+		],
+		"description": "s67.4"
+	},
+	"s67.5": {
+		"prefix": "s67.5",
+		"body": [
+			"// on error",
+			"if (response.code) {",
+			"  // remove loading",
+			"  toast.dismiss(toastLoading);",
+			" ",
+			"  return toast.error(response.code);",
+			"}"
+		],
+		"description": "s67.5"
+	},
+	"s67.6": {
+		"prefix": "s67.6",
+		"body": [
+			"// on success",
+			"if (response.sent) {",
+			"  // remove loading",
+			"  toast.dismiss(toastLoading);",
+			" ",
+			"  return toast.success('Your quote was successfully sent!');",
+			"}"
+		],
+		"description": "s67.6"
+	},
+	"s68.1": {
+		"prefix": "s68.1",
+		"body": [
+			"// on server error",
+			"toast.dismiss(toastLoading); // remove loading",
+			"",
+			"return toast.error('Sorry, we are having some technical issues…');"
+		],
+		"description": "s68.1"
+	},
+	"s68.2": {
+		"prefix": "s68.2",
+		"body": [
+			"try {",
+			"} catch (err) {",
+			"  return err;",
+			"}"
+		],
+		"description": "s68.2"
+	},
+	"s69.1": {
+		"prefix": "s69.1",
+		"body": [
+			"import { page } from '$$app/stores';",
+			"$: console.log($$page);"
+		],
+		"description": "s69.1"
+	},
+	"s69.2": {
+		"prefix": "s69.2",
+		"body": [
+			"$: slug = $$page.params.slug;"
+		],
+		"description": "s69.2"
+	},
+	"s69.3": {
+		"prefix": "s69.3",
+		"body": [
+			".separator {",
+			"  position: relative;",
+			"}",
+			".separator::after {",
+			"  content: '';",
+			"  display: block;",
+			"  position: absolute;",
+			"  bottom: -26px;",
+			"  width: 100%;",
+			"  height: 4px;",
+			"  background-color: var(--feat);",
+			"}"
+		],
+		"description": "s69.3"
+	},
+	"s69.4": {
+		"prefix": "s69.4",
+		"body": [
+			"class:separator={slug === 'home'}"
+		],
+		"description": "s69.4"
+	},
+	"s70.1": {
+		"prefix": "s70.1",
+		"body": [
+			"@media(max-width: 700px) {",
+			"  nav {",
+			"    flex-direction: column;",
+			"    gap: 24px;",
+			"    align-items: center;",
+			"    align-content: center;",
+			"  }",
+			"  nav ul {",
+			"    margin-right: unset;",
+			"    margin-left: unset;",
+			"  }",
+			"  .separator::after {",
+			"    bottom: unset;",
+			"  }",
+			"}"
+		],
+		"description": "s70.1"
+	},
+	"s70.2": {
+		"prefix": "s70.2",
+		"body": [
+			"@media(max-width: 700px) {",
+			"  img {",
+			"    height: 100%;",
+			"  }",
+			"}"
+		],
+		"description": "s70.2"
+	},
+	"s70.3": {
+		"prefix": "s70.3",
+		"body": [
+			"@media(max-width: 1000px) {",
+			"  form {",
+			"    grid-template-columns: 1fr;",
+			"    width: calc(100% - 68px);",
+			"  }",
+			"}",
+			"@media(max-width: 500px) {",
+			"  .icon {",
+			"    display: none;",
+			"  }",
+			"  form {",
+			"    width: 100%;",
+			"  }",
+			"  h2 {",
+			"    width: calc(100% - 52px); /* prevent icon from overlapping text */",
+			"  }",
+			"}"
+		],
+		"description": "s70.3"
+	},
+	"s70.4": {
+		"prefix": "s70.4",
+		"body": [
+			"@media(max-width: 1000px) {",
+			"  svg {",
+			"    top: 0;",
+			"  }",
+			"}"
+		],
+		"description": "s70.4"
+	},
+	"s70.5": {
+		"prefix": "s70.5",
+		"body": [
+			"breakpoints: {",
+			"  700: {",
+			"    perPage: 1",
+			"  }",
+			"}"
+		],
+		"description": "s70.5"
+	},
+	"s71.1": {
+		"prefix": "s71.1",
+		"body": [
+			"<script>",
+			"  import img from \"$$lib/assets/default.jpg\";",
+			"  let separator = \" – \";",
+			"  let company = \"Local Portfolio\"",
+			" ",
+			"  export let title = '';",
+			"  export let description = '';",
+			"</script>",
+			"",
+			"<svelte:head>",
+			"  <title>{title}{separator}{company}</title>",
+			"  {#if description}",
+			"  <meta name=\"description\" content=\"{description}\">",
+			"  {/if}",
+			"",
+			"  <!-- Open Graph meta tags -->",
+			"  <meta property=\"og:title\" content=\"{title}{separator}{company}\" />",
+			"  {#if description}",
+			"  <meta property=\"og:description\" content=\"{description}\" />",
+			"  {/if}",
+			"  <meta property=\"og:image\" content=\"{img}\" />",
+			"</svelte:head>"
+		],
+		"description": "s71.1"
+	},
+	"s71.2": {
+		"prefix": "s71.2",
+		"body": [
+			"<Seo title=\"Home\"/>"
+		],
+		"description": "s71.2"
+	},
+	"s71.3": {
+		"prefix": "s71.3",
+		"body": [
+			"<Seo title={data.page.title} />"
+		],
+		"description": "s71.3"
+	},
+	"s71.4": {
+		"prefix": "s71.4",
+		"body": [
+			"description=\"Check out my portfolio with all the recent projects\""
+		],
+		"description": "s71.4"
+	},
+	"s73.1": {
+		"prefix": "s73.1",
+		"body": [
+			"import { imask } from '@imask/svelte';"
+		],
+		"description": "s73.1"
+	},
+	"s73.2": {
+		"prefix": "s73.2",
+		"body": [
+			"use:imask={{mask: '(000) 000-0000'}}"
+		],
+		"description": "s73.2"
+	},
+	"s74": {
+		"prefix": "s74",
+		"body": [
+			"// fontsource",
+			"import '@fontsource/open-sans/400.css';",
+			"import '@fontsource/open-sans/700.css';",
+			"import '@fontsource/palanquin-dark';"
+		],
+		"description": "s74"
 	}
 }

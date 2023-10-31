@@ -1,4 +1,4 @@
-# Svelte & WordPress full stack developer
+# Svelte & WordPress Full Stack Course
 
 ## Demonstration
 App: https://localportfolio.vercel.app  
