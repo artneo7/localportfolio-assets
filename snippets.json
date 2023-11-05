@@ -896,7 +896,7 @@
 			"  $$projects[] = [",
 			"    'title' => get_the_title($$id),",
 			"    'img' => get_the_post_thumbnail_url($$id, 'medium_large'),",
-			"    'img_full' => get_the_post_thumbnail_url($id),",
+			"    'img_full' => get_the_post_thumbnail_url($$id),",
 			"    'alt' => get_the_post_thumbnail_caption($$id),",
 			"    'slug' => get_post_field('post_name', $$id)",
 			"  ];",
