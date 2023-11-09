@@ -1723,6 +1723,9 @@
 			"    grid-template-columns: 1fr;",
 			"    width: calc(100% - 68px);",
 			"  }",
+			"  #quote span :global(svg) {",
+			"    display: none;",
+			"  }",
 			"}",
 			"@media(max-width: 500px) {",
 			"  .icon {",
@@ -1731,34 +1734,9 @@
 			"  form {",
 			"    width: 100%;",
 			"  }",
-			"  h2 {",
-			"    width: calc(100% - 52px); /* prevent icon from overlapping text */",
-			"  }",
 			"}"
 		],
 		"description": "s70.3"
-	},
-	"s70.4": {
-		"prefix": "s70.4",
-		"body": [
-			"@media(max-width: 1000px) {",
-			"  svg {",
-			"    top: 0;",
-			"  }",
-			"}"
-		],
-		"description": "s70.4"
-	},
-	"s70.5": {
-		"prefix": "s70.5",
-		"body": [
-			"breakpoints: {",
-			"  700: {",
-			"    perPage: 1",
-			"  }",
-			"}"
-		],
-		"description": "s70.5"
 	},
 	"s71.1": {
 		"prefix": "s71.1",
